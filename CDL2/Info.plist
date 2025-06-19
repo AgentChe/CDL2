@@ -12,7 +12,21 @@
 				<string>examscdl</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1095001489355412</string>
+			</array>
+		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>1095001489355412</string>
+	<key>FacebookClientToken</key>
+	<string>827e383bda9d2fe51256b5dfe3d7da0e</string>
+	<key>FacebookDisplayName</key>
+	<string>Exams: CDL</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Regular.ttf</string>
