@@ -50,8 +50,12 @@ extension LocaleViewModel {
             selectedElementInList: selectedElementInList
         )
         
+        let countries = makeCountries()
+        let profile = makeProfile()
+        
         let elements = makeElements(
-            countries: makeCountries(),
+            countries: countries,
+            profile: profile,
             nextAction: nextAction
         )
         
@@ -65,7 +69,10 @@ extension LocaleViewModel {
         return Output(
             elements: elements,
             currentEntity: makeEntity(selectedElementInList: selectedElementInList),
-            displayItemsTab: makeDisplayItemsTab(selectedElementInList: selectedElementInList),
+            displayItemsTab: makeDisplayItemsTab(
+                selectedElementInList: selectedElementInList,
+                countries: countries
+            ),
             action: makeAction(
                 nextAction: nextAction,
                 locale: makeLocale(selectedElementInList: selectedElementInList)
@@ -168,13 +175,20 @@ private extension LocaleViewModel {
     
     func makeElements(
         countries: Driver<[Country]>,
+        profile: Driver<Profile?>,
         nextAction: Driver<NextAction>
     ) -> Driver<[LocaleTableViewElement]> {
-        let initial = countries
-            .map { countries -> [LocaleTableViewElement] in
+        let initial = Driver
+            .combineLatest(countries, profile)
+            .map { countries, profile -> [LocaleTableViewElement] in
                 countries.enumerated().map { index, country -> LocaleTableViewElement in
-                    LocaleTableViewElement(
-                        isSelected: index == 0,
+                    let isSelected: Bool = {
+                        guard let code = profile?.locale?.countryCode else { return index == 0 }
+                        return code == country.code
+                    }()
+                    
+                    return LocaleTableViewElement(
+                        isSelected: isSelected,
                         country: country
                     )
                 }
@@ -237,15 +251,34 @@ private extension LocaleViewModel {
             .distinctUntilChanged()
     }
     
-    func makeDisplayItemsTab(selectedElementInList: Driver<LocaleTableViewElement>) -> Driver<LocaleTabView.DisplayItems> {
-        selectedElementInList
-            .map { element -> LocaleTabView.DisplayItems in
-                if let country = element.country {
-                    return country.languages.count > 1 ? .countyLanguageState : .country
-                } else if let language = element.language {
-                    return language.states.count > 1 ? .countyLanguageState : .countyLanguage
-                } else if element.state != nil {
-                    return .countyLanguageState
+    func makeDisplayItemsTab(
+        selectedElementInList: Driver<LocaleTableViewElement>,
+        countries: Driver<[Country]>
+    ) -> Driver<LocaleTabView.DisplayItems> {
+        Driver
+            .combineLatest(selectedElementInList, countries)
+            .map { selectedElementInList, countries -> LocaleTabView.DisplayItems in
+                if let country = selectedElementInList.country {
+                    let languages = country.languages
+                    
+                    if languages.count > 1 {
+                        return .countryLanguageState
+                    } else if let language = languages.first {
+                        return language.states.count > 1 ? .countryState : .country
+                    } else {
+                        return .country
+                    }
+                } else if let language = selectedElementInList.language {
+                    return language.states.count > 1 ? .countryLanguageState : .countryLanguage
+                } else if let state = selectedElementInList.state {
+                    let country = countries.first(where: { country -> Bool in
+                        country.languages.contains { language -> Bool in
+                            language.states.contains(state)
+                        }
+                    })
+                    guard let country else { return .countryLanguageState }
+                    
+                    return country.languages.count > 1 ? .countryLanguageState : .countryState
                 }
                 
                 return .country
@@ -267,6 +300,12 @@ private extension LocaleViewModel {
         profileManager
             .obtainCountries(forceUpdate: false)
             .asDriver(onErrorJustReturn: [])
+    }
+    
+    func makeProfile() -> Driver<Profile?> {
+        profileManager
+            .obtainProfile(forceUpdate: false)
+            .asDriver(onErrorJustReturn: nil)
     }
 }
 

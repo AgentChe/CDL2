@@ -13,8 +13,9 @@ final class LocaleTabView: UIView {
     }
     
     enum DisplayItems {
-        case countyLanguageState
-        case countyLanguage
+        case countryLanguageState
+        case countryLanguage
+        case countryState
         case country
     }
     
@@ -58,10 +59,13 @@ extension LocaleTabView {
         switch displayItems {
         case .country:
             countryItemView = LocaleTabItemView(text: "Onboarding.Locale.Country.Tab".localized)
-        case .countyLanguage:
+        case .countryLanguage:
             countryItemView = LocaleTabItemView(text: "Onboarding.Locale.Country.Tab".localized)
             languageItemView = LocaleTabItemView(text: "Onboarding.Locale.Language.Tab".localized)
-        case .countyLanguageState:
+        case .countryState:
+            countryItemView = LocaleTabItemView(text: "Onboarding.Locale.Country.Tab".localized)
+            stateItemView = LocaleTabItemView(text: "Onboarding.Locale.State.Tab".localized)
+        case .countryLanguageState:
             countryItemView = LocaleTabItemView(text: "Onboarding.Locale.Country.Tab".localized)
             languageItemView = LocaleTabItemView(text: "Onboarding.Locale.Language.Tab".localized)
             stateItemView = LocaleTabItemView(text: "Onboarding.Locale.State.Tab".localized)
