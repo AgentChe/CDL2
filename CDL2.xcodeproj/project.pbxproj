@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		A6C2CDD5696E4E9843630269 /* Pods_CDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFB4A3BA54E9CF7922D5686 /* Pods_CDL2.framework */; };
 		DE0CC6FC2E046E5A00379021 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0CC6FB2E046E5A00379021 /* FacebookManager.swift */; };
+		DE4790072E183659006564A0 /* LocaleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4790062E183659006564A0 /* LocaleTabView.swift */; };
+		DE47900A2E183698006564A0 /* LocaleTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4790092E183698006564A0 /* LocaleTabItemView.swift */; };
+		DE47900C2E184378006564A0 /* LocaleTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47900B2E184378006564A0 /* LocaleTitleView.swift */; };
+		DE47900F2E1947FF006564A0 /* OLocaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47900E2E1947FF006564A0 /* OLocaleViewModel.swift */; };
 		DE61501F2DD9DCFE009A9952 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6150182DD9DCFE009A9952 /* Inter-Regular.ttf */; };
 		DE6150202DD9DCFE009A9952 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6150192DD9DCFE009A9952 /* Inter-SemiBold.ttf */; };
 		DE6150212DD9DCFE009A9952 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6150162DD9DCFE009A9952 /* Inter-Bold.ttf */; };
@@ -349,9 +353,6 @@
 		DE6153412DD9EBB6009A9952 /* LocaleTableViewElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6153402DD9EBB6009A9952 /* LocaleTableViewElement.swift */; };
 		DE6153432DD9EBC4009A9952 /* LocaleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6153422DD9EBC3009A9952 /* LocaleTableViewCell.swift */; };
 		DE6153452DD9EBD3009A9952 /* LocaleTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6153442DD9EBD3009A9952 /* LocaleTableView.swift */; };
-		DE6153492DD9EC18009A9952 /* LocaleStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6153482DD9EC18009A9952 /* LocaleStateView.swift */; };
-		DE61534B2DD9EC35009A9952 /* LocaleLanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61534A2DD9EC35009A9952 /* LocaleLanguageView.swift */; };
-		DE61534D2DD9EC47009A9952 /* LocaleCountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61534C2DD9EC47009A9952 /* LocaleCountryView.swift */; };
 		DE61534F2DD9EC7C009A9952 /* OLocaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61534E2DD9EC7C009A9952 /* OLocaleView.swift */; };
 		DE6153512DDA1CF6009A9952 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6153502DDA1CF6009A9952 /* Country.swift */; };
 		DE6153532DDA1CFF009A9952 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6153522DDA1CFF009A9952 /* State.swift */; };
@@ -371,6 +372,10 @@
 		7FFB4A3BA54E9CF7922D5686 /* Pods_CDL2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDL2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2B77880794B4F811931001 /* Pods-CDL2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDL2.debug.xcconfig"; path = "Target Support Files/Pods-CDL2/Pods-CDL2.debug.xcconfig"; sourceTree = "<group>"; };
 		DE0CC6FB2E046E5A00379021 /* FacebookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
+		DE4790062E183659006564A0 /* LocaleTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTabView.swift; sourceTree = "<group>"; };
+		DE4790092E183698006564A0 /* LocaleTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTabItemView.swift; sourceTree = "<group>"; };
+		DE47900B2E184378006564A0 /* LocaleTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTitleView.swift; sourceTree = "<group>"; };
+		DE47900E2E1947FF006564A0 /* OLocaleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLocaleViewModel.swift; sourceTree = "<group>"; };
 		DE6150152DD9DCFE009A9952 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
 		DE6150162DD9DCFE009A9952 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		DE6150172DD9DCFE009A9952 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
@@ -711,9 +716,6 @@
 		DE6153402DD9EBB6009A9952 /* LocaleTableViewElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTableViewElement.swift; sourceTree = "<group>"; };
 		DE6153422DD9EBC3009A9952 /* LocaleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTableViewCell.swift; sourceTree = "<group>"; };
 		DE6153442DD9EBD3009A9952 /* LocaleTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTableView.swift; sourceTree = "<group>"; };
-		DE6153482DD9EC18009A9952 /* LocaleStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleStateView.swift; sourceTree = "<group>"; };
-		DE61534A2DD9EC35009A9952 /* LocaleLanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleLanguageView.swift; sourceTree = "<group>"; };
-		DE61534C2DD9EC47009A9952 /* LocaleCountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleCountryView.swift; sourceTree = "<group>"; };
 		DE61534E2DD9EC7C009A9952 /* OLocaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLocaleView.swift; sourceTree = "<group>"; };
 		DE6153502DDA1CF6009A9952 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		DE6153522DDA1CFF009A9952 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
@@ -757,6 +759,25 @@
 				7FFB4A3BA54E9CF7922D5686 /* Pods_CDL2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE4790082E183682006564A0 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				DE4790062E183659006564A0 /* LocaleTabView.swift */,
+				DE4790092E183698006564A0 /* LocaleTabItemView.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		DE47900D2E1947E0006564A0 /* Locale */ = {
+			isa = PBXGroup;
+			children = (
+				DE61533E2DD9EB9C009A9952 /* Views */,
+				DE61534E2DD9EC7C009A9952 /* OLocaleView.swift */,
+				DE47900E2E1947FF006564A0 /* OLocaleViewModel.swift */,
+			);
+			path = Locale;
 			sourceTree = "<group>";
 		};
 		DE61501A2DD9DCFE009A9952 /* Inter */ = {
@@ -1433,7 +1454,6 @@
 		DE6151022DD9DD0D009A9952 /* Atoms */ = {
 			isa = PBXGroup;
 			children = (
-				DE61533E2DD9EB9C009A9952 /* Locale */,
 				DE6150F72DD9DD0D009A9952 /* CreatingPlan */,
 				DE6150FB2DD9DD0D009A9952 /* ExamsTable */,
 				DE6150FC2DD9DD0D009A9952 /* ODailyView.swift */,
@@ -1465,6 +1485,7 @@
 		DE6151162DD9DD0D009A9952 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE47900D2E1947E0006564A0 /* Locale */,
 				DE6151022DD9DD0D009A9952 /* Atoms */,
 				DE6151042DD9DD0D009A9952 /* Source */,
 				DE6151062DD9DD0D009A9952 /* Utils */,
@@ -1483,7 +1504,6 @@
 				DE6151132DD9DD0D009A9952 /* OStudyModeView.swift */,
 				DE6151142DD9DD0D009A9952 /* OTestView.swift */,
 				DE6151152DD9DD0D009A9952 /* OWhyView.swift */,
-				DE61534E2DD9EC7C009A9952 /* OLocaleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2174,15 +2194,14 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		DE61533E2DD9EB9C009A9952 /* Locale */ = {
+		DE61533E2DD9EB9C009A9952 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DE4790082E183682006564A0 /* Tab */,
 				DE61533F2DD9EBA8009A9952 /* TableView */,
-				DE6153482DD9EC18009A9952 /* LocaleStateView.swift */,
-				DE61534A2DD9EC35009A9952 /* LocaleLanguageView.swift */,
-				DE61534C2DD9EC47009A9952 /* LocaleCountryView.swift */,
+				DE47900B2E184378006564A0 /* LocaleTitleView.swift */,
 			);
-			path = Locale;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DE61533F2DD9EBA8009A9952 /* TableView */ = {
@@ -2380,7 +2399,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE6151F32DD9DD0D009A9952 /* TestView.swift in Sources */,
-				DE61534D2DD9EC47009A9952 /* LocaleCountryView.swift in Sources */,
 				DE6151F42DD9DD0D009A9952 /* PaygateView.swift in Sources */,
 				DE6151F52DD9DD0D009A9952 /* GetFailedTestRequest.swift in Sources */,
 				DE61535F2DDA350D009A9952 /* LocaleViewController.swift in Sources */,
@@ -2468,6 +2486,7 @@
 				DE6153612DDA3512009A9952 /* LocaleViewModel.swift in Sources */,
 				DE6152452DD9DD0D009A9952 /* TestBottomSpinner.swift in Sources */,
 				DE6152462DD9DD0D009A9952 /* Answer.swift in Sources */,
+				DE47900F2E1947FF006564A0 /* OLocaleViewModel.swift in Sources */,
 				DE6152472DD9DD0D009A9952 /* OStartView.swift in Sources */,
 				DE6152482DD9DD0D009A9952 /* ReviewTableSeparatorCell.swift in Sources */,
 				DE6152492DD9DD0D009A9952 /* TryAgainView.swift in Sources */,
@@ -2538,7 +2557,6 @@
 				DE6152872DD9DD0D009A9952 /* PlanView.swift in Sources */,
 				DE6152882DD9DD0D009A9952 /* OCreatingPlanRowView.swift in Sources */,
 				DE6152892DD9DD0D009A9952 /* OExamsTable.swift in Sources */,
-				DE6153492DD9EC18009A9952 /* LocaleStateView.swift in Sources */,
 				DE61528A2DD9DD0D009A9952 /* TryAgainViewController.swift in Sources */,
 				DE61528B2DD9DD0D009A9952 /* StatsDayMetricView.swift in Sources */,
 				DE61528C2DD9DD0D009A9952 /* SaveQuestionRequest.swift in Sources */,
@@ -2599,6 +2617,7 @@
 				DE6152C12DD9DD0D009A9952 /* StatsTableDailyMetricsCell.swift in Sources */,
 				DE6152C22DD9DD0D009A9952 /* PracticeTableView.swift in Sources */,
 				DE6152C32DD9DD0D009A9952 /* ProfileViewCoordinator.swift in Sources */,
+				DE4790072E183659006564A0 /* LocaleTabView.swift in Sources */,
 				DE6152C42DD9DD0D009A9952 /* SetRequest.swift in Sources */,
 				DE6152C52DD9DD0D009A9952 /* TestStatsTableTitleCell.swift in Sources */,
 				DE6152C62DD9DD0D009A9952 /* Fonts.swift in Sources */,
@@ -2613,6 +2632,7 @@
 				DE6152CF2DD9DD0D009A9952 /* SyncTokensRequest.swift in Sources */,
 				DE6152D02DD9DD0D009A9952 /* QuestionContentCollectionType.swift in Sources */,
 				DE6152D12DD9DD0D009A9952 /* OExamsTableCell.swift in Sources */,
+				DE47900C2E184378006564A0 /* LocaleTitleView.swift in Sources */,
 				DE6152D22DD9DD0D009A9952 /* StatsPassRateView.swift in Sources */,
 				DE6152D32DD9DD0D009A9952 /* StepCollectionElement.swift in Sources */,
 				DE6152D42DD9DD0D009A9952 /* CourseCurrentView.swift in Sources */,
@@ -2693,7 +2713,6 @@
 				DE61535C2DDA20E7009A9952 /* GetCountriesResponseMapper.swift in Sources */,
 				DE61531C2DD9DD0D009A9952 /* AgainTestRequest.swift in Sources */,
 				DE61531D2DD9DD0D009A9952 /* SceneDelegate.swift in Sources */,
-				DE61534B2DD9EC35009A9952 /* LocaleLanguageView.swift in Sources */,
 				DE61531E2DD9DD0D009A9952 /* Stats.swift in Sources */,
 				DE61531F2DD9DD0D009A9952 /* IAPActionResult.swift in Sources */,
 				DE6153202DD9DD0D009A9952 /* MyProfileViewModel.swift in Sources */,
@@ -2711,6 +2730,7 @@
 				DE61532B2DD9DD0D009A9952 /* MyProfileViewController.swift in Sources */,
 				DE61532C2DD9DD0D009A9952 /* QuestionTableView.swift in Sources */,
 				DE61532D2DD9DD0D009A9952 /* ODailyGoalView.swift in Sources */,
+				DE47900A2E183698006564A0 /* LocaleTabItemView.swift in Sources */,
 				DE61532E2DD9DD0D009A9952 /* Weak.swift in Sources */,
 				DE61532F2DD9DD0D009A9952 /* String+Extension.swift in Sources */,
 				DE6153302DD9DD0D009A9952 /* PracticeTableExamDateCell.swift in Sources */,

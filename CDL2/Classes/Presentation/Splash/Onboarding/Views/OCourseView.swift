@@ -17,7 +17,6 @@ final class OCourseView: OSlideView {
     weak var vc: UIViewController?
     var courseDelegates = [Weak<OCourseViewDelegate>]()
     
-    lazy var backButton = makeBackButton()
     lazy var headerLabel = makeHeaderLabel()
     lazy var titleLabel = makeTitleLabel()
     lazy var subTitleLabel = makeSubTitleLabel()
@@ -170,13 +169,6 @@ private extension OCourseView {
 private extension OCourseView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 24.scale),
-            backButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            backButton.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 49.scale : 30.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
             headerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 94.scale : 44.scale)
         ])
@@ -216,15 +208,6 @@ private extension OCourseView {
 
 // MARK: Lazy initialization
 private extension OCourseView {
-    func makeBackButton() -> TapAreaButton {
-        let view = TapAreaButton()
-        view.setImage(UIImage(named: "OCouse.Back"), for: .normal)
-        view.addTarget(self, action: #selector(onBack), for: .touchUpInside)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
     func makeHeaderLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.main300)
