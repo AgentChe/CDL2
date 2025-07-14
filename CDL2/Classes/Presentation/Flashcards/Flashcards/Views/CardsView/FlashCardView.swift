@@ -9,20 +9,13 @@ import UIKit
 import AVFoundation
 
 protocol FlashCardDelegate: AnyObject {
-    func moving(index: Int, distance: CGFloat)
     func moved()
-    func cardReturned()
     func tapAction(id: Int, isKnew: Bool)
 }
 
 final class FlashCardView: UIView {
-    var index: Int!
-    
     weak var delegate: FlashCardDelegate?
     
-    private var xCenter: CGFloat = .zero
-    private var yCenter: CGFloat = .zero
-    private var originalPoint: CGPoint = .zero
     private var id: Int?
     private var player: AVPlayer?
     
@@ -80,10 +73,20 @@ extension FlashCardView: UIGestureRecognizerDelegate {
 
 // MARK: Private
 private extension FlashCardView {
+    enum Action {
+        case left, right
+    }
+    
     func initialize() {
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.beingDragged))
-        panGestureRecognizer.delegate = self
-        addGestureRecognizer(panGestureRecognizer)
+        let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToLeft))
+        leftSwipeGestureRecognizer.direction = .left
+        leftSwipeGestureRecognizer.delegate = self
+        addGestureRecognizer(leftSwipeGestureRecognizer)
+        
+        let rightSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeToRight))
+        rightSwipeGestureRecognizer.direction = .right
+        rightSwipeGestureRecognizer.delegate = self
+        addGestureRecognizer(rightSwipeGestureRecognizer)
         
         backgroundColor = UIColor.clear
     }
@@ -165,7 +168,33 @@ private extension FlashCardView {
         })
     }
     
+    @objc
+    func swipeToLeft() {
+        if let id = id {
+            selectedAnswer(know: false, id: id)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: { [weak self] in
+            self?.cardMoved(action: .left)
+        })
+    }
+    
+    @objc
+    func swipeToRight() {
+        if let id = id {
+            selectedAnswer(know: true, id: id)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: { [weak self] in
+            self?.cardMoved(action: .right)
+        })
+    }
+    
     func selectedAnswer(know: Bool, id: Int) {
+        contentView.backgroundColor = know ? Appearance.system200.withAlphaComponent(0.2) : Appearance.system100.withAlphaComponent(0.2)
+        contentView.layer.borderWidth = 1.scale
+        contentView.layer.borderColor = know ? Appearance.system200.cgColor : Appearance.system100.cgColor
+        
         knowButton.backgroundColor = know ? Appearance.system200.withAlphaComponent(0.2) : Appearance.main200
         knowButton.layer.borderWidth = know ? 1.scale : 0
         knowButton.layer.borderColor = know ? Appearance.system200.cgColor : UIColor.clear.cgColor
@@ -179,67 +208,20 @@ private extension FlashCardView {
         
         delegate?.tapAction(id: id, isKnew: know)
     }
-}
-
-// MARK: Private
-private extension FlashCardView {
-    enum Action {
-        case left, right, `return`
-    }
-    
-    @objc
-    func beingDragged(_ gestureRecognizer: UIPanGestureRecognizer) {
-        xCenter = gestureRecognizer.translation(in: self).x
-        yCenter = gestureRecognizer.translation(in: self).y
-        
-        switch gestureRecognizer.state {
-        case .began:
-            originalPoint = center
-        case .changed:
-            center = CGPoint(x: originalPoint.x + xCenter, y: originalPoint.y + yCenter)
-            updateOverlay(xCenter)
-        case .ended:
-            let action: Action
-            let moveDirectionDistance = bounds.width / 2 * 0.75
-            
-            let swipeDistance = bounds.width / 4
-            
-            if yCenter > swipeDistance {
-                action = xCenter > moveDirectionDistance ? .right : .left
-                
-                if let id {
-                    delegate?.tapAction(id: id, isKnew: xCenter > moveDirectionDistance)
-                }
-            } else {
-                action = .return
-            }
-            cardMoved(action: action)
-         default:
-            break
-        }
-    }
     
     func cardMoved(action: Action) {
-        guard action != .return else {
-            center = originalPoint
-            delegate?.cardReturned()
-            return
-        }
-        
-        delegate?.moved()
         player?.pause()
+        
         let value: CGFloat = action == .left ? -1 : 1
-        let finishPoint = CGPoint(x: value * frame.size.width * 2, y: 2 * yCenter + originalPoint.y)
+        let finishPoint = CGPoint(x: value * frame.size.width * 2, y: frame.size.height)
         
         UIView.animate(withDuration: 0.5, animations: {
             self.center = finishPoint
-        }, completion: { _ in
-            self.removeFromSuperview()
+        }, completion: { [weak self] _ in
+            self?.removeFromSuperview()
+            
+            self?.delegate?.moved()
         })
-    }
-    
-    func updateOverlay(_ distance: CGFloat) {
-        delegate?.moving(index: index, distance: distance)
     }
 }
 
