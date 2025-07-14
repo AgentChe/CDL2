@@ -137,12 +137,10 @@ private extension FlashCardView {
     
     @objc
     func tapShowAnswer() {
-        UIView.animate(withDuration: 0.2) { [weak self] in
-            self?.showAnswerButton.isHidden.toggle()
-            self?.knowButton.isHidden.toggle()
-            self?.stillLearningButton.isHidden.toggle()
-            self?.answerLabel.isHidden.toggle()
-        }
+        showAnswerButton.isHidden.toggle()
+        knowButton.isHidden.toggle()
+        stillLearningButton.isHidden.toggle()
+        answerLabel.isHidden.toggle()
     }
     
     @objc
