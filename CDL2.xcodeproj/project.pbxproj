@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A6C2CDD5696E4E9843630269 /* Pods_CDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFB4A3BA54E9CF7922D5686 /* Pods_CDL2.framework */; };
 		DE0CC6FC2E046E5A00379021 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0CC6FB2E046E5A00379021 /* FacebookManager.swift */; };
+		DE1562D42E5455BE00365C61 /* GetFinalTestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1562D32E5455BE00365C61 /* GetFinalTestRequest.swift */; };
 		DE18FC002E20EC84008F207C /* GetFlashcardsTopicsResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE18FBFB2E20EC84008F207C /* GetFlashcardsTopicsResponseMapper.swift */; };
 		DE18FC012E20EC84008F207C /* FlashCardManagerMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE18FBF02E20EC84008F207C /* FlashCardManagerMediator.swift */; };
 		DE18FC022E20EC84008F207C /* GetFlashcardsResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE18FBF82E20EC84008F207C /* GetFlashcardsResponseMapper.swift */; };
@@ -394,6 +395,7 @@
 		7FFB4A3BA54E9CF7922D5686 /* Pods_CDL2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CDL2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2B77880794B4F811931001 /* Pods-CDL2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CDL2.debug.xcconfig"; path = "Target Support Files/Pods-CDL2/Pods-CDL2.debug.xcconfig"; sourceTree = "<group>"; };
 		DE0CC6FB2E046E5A00379021 /* FacebookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
+		DE1562D32E5455BE00365C61 /* GetFinalTestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFinalTestRequest.swift; sourceTree = "<group>"; };
 		DE18FBF02E20EC84008F207C /* FlashCardManagerMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardManagerMediator.swift; sourceTree = "<group>"; };
 		DE18FBF22E20EC84008F207C /* FlashcardsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsManager.swift; sourceTree = "<group>"; };
 		DE18FBF42E20EC84008F207C /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
@@ -2270,6 +2272,7 @@
 				DE6151CC2DD9DD0D009A9952 /* GetTestRequest.swift */,
 				DE6151CD2DD9DD0D009A9952 /* GetTestResponseMapper.swift */,
 				DE6151CE2DD9DD0D009A9952 /* QuestionMapper.swift */,
+				DE1562D32E5455BE00365C61 /* GetFinalTestRequest.swift */,
 			);
 			path = GetTest;
 			sourceTree = "<group>";
@@ -2626,6 +2629,7 @@
 				DE6152212DD9DD0D009A9952 /* PaygateInfoCell.swift in Sources */,
 				DE6152222DD9DD0D009A9952 /* TabItemView.swift in Sources */,
 				DE6152232DD9DD0D009A9952 /* CoursesTableCourseCell.swift in Sources */,
+				DE1562D42E5455BE00365C61 /* GetFinalTestRequest.swift in Sources */,
 				DE6152242DD9DD0D009A9952 /* ODailyView.swift in Sources */,
 				DE6152252DD9DD0D009A9952 /* TestStatsTableFilterCell.swift in Sources */,
 				DE6152262DD9DD0D009A9952 /* NumberLaunches.swift in Sources */,
@@ -2979,7 +2983,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = X939349SF3;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -2996,7 +3000,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = prep.exams.cdl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3019,7 +3023,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = X939349SF3;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -3036,7 +3040,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = prep.exams.cdl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
