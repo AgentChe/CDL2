@@ -42,6 +42,7 @@
 		DE47904A2E1C029E006564A0 /* OLocaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4790422E1C029E006564A0 /* OLocaleView.swift */; };
 		DE47904B2E1C029E006564A0 /* OLocaleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4790432E1C029E006564A0 /* OLocaleViewModel.swift */; };
 		DE47904C2E1C029E006564A0 /* LocaleTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE47903A2E1C029E006564A0 /* LocaleTabView.swift */; };
+		DE5E7B382FDA9D8E00B419BE /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5E7B372FDA9D8E00B419BE /* FacebookManager.swift */; };
 		DE61501F2DD9DCFE009A9952 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6150182DD9DCFE009A9952 /* Inter-Regular.ttf */; };
 		DE6150202DD9DCFE009A9952 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6150192DD9DCFE009A9952 /* Inter-SemiBold.ttf */; };
 		DE6150212DD9DCFE009A9952 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE6150162DD9DCFE009A9952 /* Inter-Bold.ttf */; };
@@ -426,6 +427,7 @@
 		DE4790402E1C029E006564A0 /* LocaleTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocaleTitleView.swift; sourceTree = "<group>"; };
 		DE4790422E1C029E006564A0 /* OLocaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLocaleView.swift; sourceTree = "<group>"; };
 		DE4790432E1C029E006564A0 /* OLocaleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OLocaleViewModel.swift; sourceTree = "<group>"; };
+		DE5E7B372FDA9D8E00B419BE /* FacebookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
 		DE6150152DD9DCFE009A9952 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
 		DE6150162DD9DCFE009A9952 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		DE6150172DD9DCFE009A9952 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
@@ -984,6 +986,14 @@
 			path = Locale;
 			sourceTree = "<group>";
 		};
+		DE5E7B362FDA9D8500B419BE /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				DE5E7B372FDA9D8E00B419BE /* FacebookManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		DE61501A2DD9DCFE009A9952 /* Inter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1111,6 +1121,7 @@
 		DE6150582DD9DD0D009A9952 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				DE5E7B362FDA9D8500B419BE /* Analytics */,
 				DE6150292DD9DD0D009A9952 /* Components */,
 				DE6150352DD9DD0D009A9952 /* CustomViews */,
 				DE61503F2DD9DD0D009A9952 /* Extension */,
@@ -2742,6 +2753,7 @@
 				DE6152852DD9DD0D009A9952 /* SettingsTableElement.swift in Sources */,
 				DE6152862DD9DD0D009A9952 /* StatsTablePassRateCell.swift in Sources */,
 				DE6152872DD9DD0D009A9952 /* PlanView.swift in Sources */,
+				DE5E7B382FDA9D8E00B419BE /* FacebookManager.swift in Sources */,
 				DE6152882DD9DD0D009A9952 /* OCreatingPlanRowView.swift in Sources */,
 				DE6152892DD9DD0D009A9952 /* OExamsTable.swift in Sources */,
 				DE61528A2DD9DD0D009A9952 /* TryAgainViewController.swift in Sources */,
